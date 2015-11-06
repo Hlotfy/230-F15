@@ -37,8 +37,10 @@ public class ArrayQueue<T> implements Queue<T> {
 	}
 	
 	public String toString() {
-		String s = data[head].toString();
-		for (int i = head+1 % data.length; i >= 0; i--)
+		String s = "";
+		if (!isEmpty())
+			s = data[head].toString();
+		for (int i = (head+1) % data.length; i <= (tail + data.length) % data.length; i++)
 			s += " -> " + data[i];
 		s+= "\n";
 		return s;
