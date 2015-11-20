@@ -1,5 +1,7 @@
 package submission;
 
+import java.util.EmptyStackException;
+
 import adt.Stack;
 
 public class LinkedStack<T> implements Stack<T> {
@@ -7,32 +9,38 @@ public class LinkedStack<T> implements Stack<T> {
 	
 	@Override
 	public void push(T newEntry) {
-		// TODO Auto-generated method stub
-		
+		Node oldTop = top;
+		top = new Node(newEntry, oldTop);
 	}
 
 	@Override
 	public T pop() {
-		// TODO Auto-generated method stub
-		return null;
+		if(isEmpty()) {
+			return null;
+		}else{
+			T oldTop = top.data;
+			top = top.next;
+			return oldTop;
+		}
 	}
 
 	@Override
 	public T peek() {
-		// TODO Auto-generated method stub
-		return null;
+		if(isEmpty()) {
+			throw new EmptyStackException();
+		}else{
+			return top.data;
+		}
 	}
 
 	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return false;
+		return top==null;
 	}
 
 	@Override
 	public void clear() {
-		// TODO Auto-generated method stub
-		
+		top = null;
 	}
 	
 	public String toString() {

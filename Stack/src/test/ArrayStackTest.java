@@ -59,7 +59,7 @@ public class ArrayStackTest {
 		stack.push("A");
 		stack.push("C");
 		String t = stack.peek();
-		assertTrue(t.equals("C"));
+		assertTrue (t.equals("C"));
 		t = stack.peek();
 		assertTrue(t.equals("C"));
 		String s = "| C |\n| A |\n+++++\n";
